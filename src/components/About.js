@@ -1,31 +1,18 @@
 import React, { useState } from "react";
 
-export default function About() {
-  const [myStyle, setMyStyle] = useState({
-    color: "black",
-    backgroundColor: "white",
-  });
-  const [btntext, setBtnText] = useState("Enable Dark Mode");
-
-  const toggleStyle = () => {
-    if (myStyle.color === "black") {
-      setMyStyle({
-        color: "white",
-        backgroundColor: "black",
-        border: "1px solid white",
-      });
-      setBtnText("Enable Light Mode");
-    } else {
-      setMyStyle({
-        color: "black",
-        backgroundColor: "white",
-      });
-      setBtnText("Enable Dark Mode");
-    }
-  };
+export default function About(props) {
+  // const [myStyle, setMyStyle] = useState({
+  //   color: "black",
+  //   backgroundColor: "white",
+  // });
+ 
+  let myStyle = {
+    color : props.mode === 'dark'?'white':'#042743',
+    backgroundColor : props.mode === 'dark'?'rgb(5, 53, 92)':'white',
+  }
 
   return (
-    <div className="container" style={myStyle}>
+    <div className="container" style={{color : props.mode === 'dark'?'white':'#042743'}}>
       <h1 className="my-3">About Us</h1>
       <div className="accordion" id="accordionExample">
         <div className="accordion-item">
@@ -39,7 +26,7 @@ export default function About() {
               aria-expanded="true"
               aria-controls="collapseOne"
             >
-              Accordion Item #1
+              <strong>Analyze Your Text</strong>
             </button>
           </h2>
           <div
@@ -49,14 +36,7 @@ export default function About() {
             data-bs-parent="#accordionExample"
           >
             <div className="accordion-body" style={myStyle}>
-              <strong>This is the first item's accordion body.</strong> It is
-              shown by default, until the collapse plugin adds the appropriate
-              classes that we use to style each element. These classes control
-              the overall appearance, as well as the showing and hiding via CSS
-              transitions. You can modify any of this with custom CSS or
-              overriding our default variables. It's also worth noting that just
-              about any HTML can go within the <code>.accordion-body</code>,
-              though the transition does limit overflow.
+              Lorem ipsum dolor sit amet consectetur adipisicing elit. Modi provident quaerat delectus libero nulla vitae facere. Dignissimos error repudiandae dolores officiis doloremque neque nisi debitis, eligendi quos cumque aut ipsa suscipit velit delectus. Eligendi alias inventore, doloremque minima culpa sunt. Quas odio ipsam consequuntur ab, excepturi cumque rem eius, laboriosam repudiandae dolore magni aut totam praesentium? Itaque, magni? Veritatis sapiente enim non quae impedit error praesentium autem, dolores quisquam magnam.
             </div>
           </div>
         </div>
@@ -71,7 +51,7 @@ export default function About() {
               aria-expanded="false"
               aria-controls="collapseTwo"
             >
-              Accordion Item #2
+            <strong> Free to Use </strong>
             </button>
           </h2>
           <div
@@ -81,14 +61,7 @@ export default function About() {
             data-bs-parent="#accordionExample"
           >
             <div className="accordion-body" style={myStyle}>
-              <strong>This is the second item's accordion body.</strong> It is
-              hidden by default, until the collapse plugin adds the appropriate
-              classes that we use to style each element. These classes control
-              the overall appearance, as well as the showing and hiding via CSS
-              transitions. You can modify any of this with custom CSS or
-              overriding our default variables. It's also worth noting that just
-              about any HTML can go within the <code>.accordion-body</code>,
-              though the transition does limit overflow.
+              Lorem ipsum dolor, sit amet consectetur adipisicing elit. Assumenda dolore nulla inventore corrupti obcaecati, vitae facere modi fugit adipisci fuga magnam accusantium doloribus, ipsam sit nesciunt excepturi? Distinctio eos optio, tenetur ipsam officiis porro soluta, dolor laboriosam, dicta veniam neque?Lorem ipsum dolor sit amet, consectetur adipisicing elit. Autem quisquam soluta rem, deleniti est quibusdam porro praesentium dolores architecto aut!
             </div>
           </div>
         </div>
@@ -103,7 +76,7 @@ export default function About() {
               aria-expanded="false"
               aria-controls="collapseThree"
             >
-              Accordion Item #3
+            <strong> Browser Compatible </strong>
             </button>
           </h2>
           <div
@@ -113,22 +86,10 @@ export default function About() {
             data-bs-parent="#accordionExample"
           >
             <div className="accordion-body" style={myStyle}>
-              <strong>This is the third item's accordion body.</strong> It is
-              hidden by default, until the collapse plugin adds the appropriate
-              classes that we use to style each element. These classes control
-              the overall appearance, as well as the showing and hiding via CSS
-              transitions. You can modify any of this with custom CSS or
-              overriding our default variables. It's also worth noting that just
-              about any HTML can go within the <code>.accordion-body</code>,
-              though the transition does limit overflow.
+              Lorem ipsum dolor, sit amet consectetur adipisicing elit. Molestias eveniet ab, facere natus soluta voluptatem ea nisi sunt totam eaque suscipit corrupti delectus harum iure facilis dignissimos! Adipisci reiciendis omnis aspernatur. Alias tempore delectus iure ut quaerat, cupiditate nostrum dolorum pariatur ipsa rem reprehenderit non saepe illum quod dignissimos doloremque quo suscipit molestiae. Impedit, eaque sunt saepe eum nulla Lorem ipsum dolor, sit amet consectetur adipisicing elit. Iure laborum explicabo, quia exercitationem, asperiores inventore, soluta rem aspernatur impedit distinctio nostrum vel molestias totam. Quam non laborum ad atque molestias!
             </div>
           </div>
         </div>
-      </div>
-      <div className="container my-3">
-        <button onClick={toggleStyle} type="button" className="btn btn-primary">
-          {btntext}
-        </button>
       </div>
     </div>
   );
